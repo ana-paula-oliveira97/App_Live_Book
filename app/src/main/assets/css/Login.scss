@@ -1,0 +1,293 @@
+html,
+body {
+  overflow-x: hidden;
+}
+section {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--primary) url(../img/DECORATION.png);
+  background-position: center;
+  background-size: cover;
+}
+
+section > svg {
+  height: 70px;
+  margin: auto 0;
+}
+
+.logo_account {
+  height: 65px;
+  margin: auto 0;
+}
+
+section > main {
+  width: 100%;
+  height: 77%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: flex-end;
+
+  border-radius: 25px 25px 0 0;
+  background: var(--second);
+}
+@media (min-width: 345px) {
+  section {
+    background: var(--primary) url(../img/DECORATION_DESKTOP.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  section > main {
+    width: 345px;
+    border-radius: 25px;
+    margin-bottom: auto;
+  }
+  form,
+  #etapa_1,
+  #etapa_2 {
+    border-radius: 20px !important;
+  }
+}
+section > main > header {
+  width: 100%;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 20px 20px 0 0;
+}
+
+section > main > form,
+#etapa_1,
+#etapa_2 {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--primary);
+
+  border-radius: 25px 25px 0 0;
+}
+
+.form_account {
+  height: 84%;
+}
+
+main > form > div,
+main > form > #etapa_1 > div,
+main > form > #etapa_2 > div {
+  width: 80%;
+  height: 45px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+form > div > h1 form > #etapa_1 > div > h1 form > #etapa_2 > div > h1 {
+  margin-bottom: 8px;
+}
+
+form > p,
+#form_login > p {
+  width: 80%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+form > p > button,
+#form_login > p > button {
+  color: var(--second);
+}
+
+// Labels
+.Labels {
+  font-size: 16px;
+  font-weight: bold;
+
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.25);
+
+  cursor: pointer;
+}
+
+.Labels_on {
+  color: var(--primary);
+}
+
+.off_visible {
+  display: none !important;
+}
+
+.Inputs {
+  width: 100%;
+  height: 35px;
+
+  position: relative;
+}
+
+input {
+  width: 100%;
+  height: 35px;
+
+  border: none;
+  border-bottom: 2px var(--third) solid;
+  opacity: 0.5;
+}
+
+.Inputs > span {
+  position: absolute;
+  right: 16px;
+
+  color: var(--second);
+  font-weight: bold;
+  font-size: 12px;
+
+  cursor: pointer;
+}
+span.text_about_passWord {
+  right: 0;
+  top: 2px;
+
+  cursor: help;
+}
+
+input:active,
+input:hover,
+input:focus {
+  opacity: 1;
+  border-bottom: 2px var(--second) solid;
+}
+
+.LabelsInfo {
+  font-size: 14px;
+  font-weight: bold;
+
+  border: none;
+  background: transparent;
+  color: var(--third);
+}
+
+.ButtonPrimary {
+  width: 80%;
+  height: 50px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--second);
+  color: var(--primary);
+
+  font-size: 18px;
+  font-weight: bold;
+}
+a {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--second);
+  text-decoration: none;
+  background: none;
+}
+
+#Notify_error,
+#Notify_info,
+#Notify_success {
+  padding: 2%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 auto;
+
+  border-radius: 5px;
+}
+@media (max-width: 1124px) {
+  #Notify_error,
+  #Notify_info,
+  #Notify_success {
+    padding: 1%;
+    width: 100%;
+    top: -5px;
+  }
+}
+
+.error {
+  color: red !important;
+}
+
+label.language,
+div.language {
+  position: absolute;
+  width: 350px;
+  height: 60px;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  top: 20px;
+  right: 0px;
+
+  background: var(--primary);
+  svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+label.language {
+  width: 60px;
+}
+div.language {
+  display: none;
+}
+#on_language {
+  display: none;
+}
+
+#on_language:checked ~ div.language {
+  display: flex;
+}
+#InputLanguage {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .language {
+    top: 0 !important;
+    right: 10px !important;
+    border-radius: 0 0 20px 20px !important;
+  }
+  div.language {
+    width: 60px;
+    height: 350px;
+  }
+}
+button,
+#close_success,
+#close_error,
+#close_info {
+  cursor: pointer;
+}

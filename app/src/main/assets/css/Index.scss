@@ -1,0 +1,114 @@
+body {
+  display: grid;
+  grid-template-columns: 0.8fr 0.5fr 4fr 0.5fr 2fr;
+  grid-template-rows: 100px auto 80px;
+
+  background-color: var(--background);
+}
+
+aside {
+  grid-column: 5/6;
+  grid-row: 1/3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2.5%;
+
+  background-color: var(--primary);
+
+  strong {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--second);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Montserrat";
+  }
+
+  div {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      width: 130px;
+      height: 160px;
+      border-radius: 20px;
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      figure {
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+      }
+
+      figcaption {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      a {
+        width: 70%;
+        height: 30px;
+        border-radius: 20px;
+
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        text-decoration: none;
+      }
+      a.offFolow {
+        color: var(--primary);
+        background: var(--gradient);
+      }
+      a.onFolow {
+        color: var(--second);
+      }
+    }
+    div:hover {
+      box-shadow: var(--shadow);
+    }
+  }
+}
+
+footer {
+  grid-row: 3/4;
+  grid-column: 5/6;
+
+  background: var(--second);
+  color: var(--primary);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  p {
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+  }
+}
