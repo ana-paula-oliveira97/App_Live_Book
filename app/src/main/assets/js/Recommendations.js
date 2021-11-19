@@ -1,14 +1,24 @@
-let container = document.getElementById("recommendations")
+let container = document.getElementById("recommendations");
 
-let data = [{name: "karlla Souzza", folowing: false}, {name: "Ana Paula", folowing: true},{name: "Victor", folowing: true}]
+let data = [
+  { name: "karlla Souzza", folowing: false },
+  { name: "Ana Paula", folowing: true },
+  { name: "Victor Souzza", folowing: true },
+  { name: "Marilia Souzza", folowing: true },
+  { name: "Brenardo Souzza", folowing: true },
+];
 
 for (let index = 0; index < data.length; index++) {
-  container.innerHTML +=
-  ` <div>
-      <figure class="${letter_to_image(data[index].name)}"></figure>
-      <figcaption>${data[index].name}</figcaption>
-      ${data[index].folowing ? '<a class="onFolow" href="">Seguindo</a>' : '<a class="offFolow" href="">Seguir</a>'}
-    </div>`
+  let [, Name_formated] = data[index].name.match(/(\S+) /) || [];
+  container.innerHTML += ` <div>
+      <figure class="${letter_to_image(Name_formated)}"></figure>
+      <figcaption>${Name_formated}</figcaption>
+      ${
+        data[index].folowing
+          ? '<a class="onFolow" href="">Seguindo</a>'
+          : '<a class="offFolow" href="">Seguir</a>'
+      }
+    </div>`;
 }
 
 function letter_to_image(first_letter) {

@@ -1,0 +1,119 @@
+#form_post {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: var(--primary);
+  width: 600px;
+  height: 500px;
+  padding: 15px;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+  display: none;
+
+  label.close {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  div {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+    justify-content: space-between;
+
+    h1 {
+      width: 100%;
+      color: var(--second);
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+
+      border: 2px var(--third) solid;
+    }
+    input {
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+
+      border: 2px var(--third) solid;
+    }
+    textarea:hover,
+    textarea:focus,
+    textarea:active,
+    textarea:focus-visible,
+    textarea:focus-within,
+    input:hover,
+    input:focus,
+    input:active,
+    input:focus-visible,
+    input:focus-within {
+      background-color: rgba(81, 0, 255, 0.259);
+      transition: 0.7 ease-in-out;
+    }
+  }
+}
+
+.LabelsInfo {
+  font-size: 14px;
+  font-weight: bold;
+
+  border: none;
+  background: transparent;
+  color: var(--third);
+  padding-bottom: 8px;
+}
+
+.ButtonPrimary {
+  width: 80%;
+  height: 50px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--second);
+  color: var(--primary);
+
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+
+  background: rgba(0, 0, 0, 0.549);
+  filter: blur(1px);
+
+  display: none;
+}
+
+#open_form {
+  display: none;
+}
+#open_form:checked ~ #form_post {
+  display: flex;
+}
+#open_form:checked ~ .blur {
+  display: inline-block;
+}

@@ -1,0 +1,115 @@
+#form_post {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: var(--primary);
+  width: 600px;
+  height: 500px;
+  padding: 15px;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+  display: none;
+}
+
+#form_post label.close {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+#form_post div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  justify-content: space-between;
+}
+
+#form_post div h1 {
+  width: 100%;
+  color: var(--second);
+  text-align: center;
+}
+
+#form_post div textarea {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px var(--third) solid;
+}
+
+#form_post div input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px var(--third) solid;
+}
+
+#form_post div textarea:hover,
+#form_post div textarea:focus,
+#form_post div textarea:active,
+#form_post div textarea:focus-visible,
+#form_post div textarea:focus-within,
+#form_post div input:hover,
+#form_post div input:focus,
+#form_post div input:active,
+#form_post div input:focus-visible,
+#form_post div input:focus-within {
+  background-color: rgba(81, 0, 255, 0.259);
+  transition: 0.7 ease-in-out;
+}
+
+.LabelsInfo {
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: var(--third);
+  padding-bottom: 8px;
+}
+
+.ButtonPrimary {
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: var(--second);
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.549);
+  filter: blur(1px);
+  display: none;
+}
+
+#open_form {
+  display: none;
+}
+
+#open_form:checked ~ #form_post {
+  display: flex;
+}
+
+#open_form:checked ~ .blur {
+  display: inline-block;
+}

@@ -1,22 +1,27 @@
 document
-  .querySelector("#form_account")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    if (change === 1) {
-      if (
-        !validarPWD(password_account, password_confirm) |
-        !validarPassword(password_confirm) |
-        !validarPassword(password_account) |
-        !validarNome() |
-        !validarEmail(email_account)
-      )
-        return;
+  .querySelector("#text_button_account_1")
+  .addEventListener("click", function () {
+    if (
+      !validarPWD(password_account, password_confirm) |
+      !validarPassword(password_confirm) |
+      !validarPassword(password_account) |
+      !validarNome() |
+      !validarEmail(email_account)
+    )
+      return;
 
-      Account_2();
-    } else {
-      if (!validarPhone() | !validaCPF()) return;
-    }
+    Account_2();
   });
+document.getElementById("form_account").addEventListener("submit", (event) => {
+  if (!validarPhone() | !validaCPF()) return;
+  Chamada.cadastraUser(
+    nome.value,
+    password_confirm.value,
+    email_account.value,
+    cpf.value,
+    phone.value
+  );
+});
 
 document
   .querySelector("#form_login")
@@ -24,6 +29,15 @@ document
     event.preventDefault();
 
     if (!validarPassword(password) | !validarEmail(email)) return;
+
+    let result = Chamada.getUser(email.value, password.value);
+    if (result) {
+      sessionStorage.setItem("ID", result);
+      location.href="./index.html"
+
+    } else {
+      alert("tente Novamente");
+    }
   });
 
 function validarEmail(email) {

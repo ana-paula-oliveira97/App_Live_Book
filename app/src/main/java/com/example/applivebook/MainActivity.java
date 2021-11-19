@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void envia(String username, Double password, String email, String cpf, String phone )  {
+        public void cadastraUser(String username, String password, String email, String cpf, String phone )  {
 
             try {
                 BancoDeDados bd = new BancoDeDados(this.contexto);
@@ -66,11 +66,45 @@ public class MainActivity extends AppCompatActivity {
             result = mensagem;
 
         }
+        @JavascriptInterface
+        public String getUser (String email, String password) {
+            BancoDeDados bd = new BancoDeDados(this.contexto);
+            ArrayList<String> resultado =  bd.consultUser(email, password);
+
+
+            return  resultado.get(0);
+        }
 
         @JavascriptInterface
         public String getResult() {
             consultar();
             return result;
         }
+
+        @JavascriptInterface
+        public void cadastraPosts(String idUser, String content, String tags, String l, String c ) {
+            try {
+                BancoDeDados bd2 = new BancoDeDados(this.contexto);
+
+                bd2.inserePosts(idUser, content, tags, l, c);
+                Toast.makeText(this.contexto, "Post Salvo", Toast.LENGTH_SHORT).show();
+            } catch (Exception ex) {
+                Toast.makeText(this.contexto, "Erro na criação:"+ex.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @JavascriptInterface
+        public void consultarPost() {
+            BancoDeDados bd = new BancoDeDados(this.contexto);
+            ArrayList<String> resultado =  bd.consultarPosts();
+            String mensagem = "";
+            for (int i=0; i< resultado.size(); i++) {
+                mensagem += resultado.get(i);
+            }
+            result = mensagem;
+
+        }
     }
+
+
 }
