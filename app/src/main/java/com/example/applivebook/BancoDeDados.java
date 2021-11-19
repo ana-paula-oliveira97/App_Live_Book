@@ -30,41 +30,31 @@ public class BancoDeDados extends SQLiteOpenHelper {
         return id;
     }
 
-    public long inserePosts(String id_user, String content, String tags, String like_number, String comment_number) {
-        SQLiteDatabase banco = this.getWritableDatabase();
-        ContentValues registers = new ContentValues();
-        registers.put("id_user", id_user);
-        registers.put("content", content);
-        registers.put("tags", tags);
-        registers.put("like_number", like_number);
-        registers.put("comment_number", comment_number);
-        long id = banco.insert("posts", null, registers);
-        banco.close();
-        return id;
-    }
     public ArrayList<String> consultar() {
         SQLiteDatabase banco = this.getReadableDatabase();
         String sql = "SELECT * FROM usuarios";
-        ArrayList<String> resultado = null;
+        ArrayList<String> resultant = null;
 
         Cursor c = banco.rawQuery(sql, null);
         if (c.moveToFirst()) {
-            resultado = new ArrayList<String>();
+            resultant = new ArrayList<String>();
             do {
                 String registro;
-                registro = "\n id : " + c.getString(1);
-                registro = "\n username : " + c.getString(2);
-                registro+= "\n email     : " + c.getString(3);
-                registro+= "\n password     : " + c.getString(4);
-                registro+= "\n cpf    : " + c.getString(5);
-                registro+= "\n phone    : " + c.getString(6);
+                registro = c.getString(1);
+                registro += ",";
+                //registro = "," + c.getString(2);
+                //registro+= "," + c.getString(3);
+                //registro+= "," + c.getString(4);
+                //registro+= "," + c.getString(5);
+
+                // registro+= "\n phone    : " + c.getString(6);
 
 
-                resultado.add(registro);
+                resultant.add(registro);
             } while (c.moveToNext());
         }
         banco.close();
-        return resultado;
+        return resultant;
     }
 
     public ArrayList<String> consultarPosts() {
@@ -133,17 +123,6 @@ public class BancoDeDados extends SQLiteOpenHelper {
 
 
         sqLiteDatabase.execSQL(sql);
-
-        sqLiteDatabase.execSQL( "CREATE TABLE posts(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_user INTEGER," +
-                "content TEXT," +
-                "tags TEXT," +
-                "like_number INTEGER," +
-                "comment_number INTEGER," +
-                "FOREIGN KEY (id_user)" +
-                "       REFERENCES usuarios(id) " +
-                ");");
     }
 
     @Override

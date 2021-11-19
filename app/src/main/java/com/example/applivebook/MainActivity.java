@@ -81,17 +81,6 @@ public class MainActivity extends AppCompatActivity {
             return result;
         }
 
-        @JavascriptInterface
-        public void cadastraPosts(String idUser, String content, String tags, String l, String c ) {
-            try {
-                BancoDeDados bd2 = new BancoDeDados(this.contexto);
-
-                bd2.inserePosts(idUser, content, tags, l, c);
-                Toast.makeText(this.contexto, "Post Salvo", Toast.LENGTH_SHORT).show();
-            } catch (Exception ex) {
-                Toast.makeText(this.contexto, "Erro na criação:"+ex.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
 
         @JavascriptInterface
         public void consultarPost() {

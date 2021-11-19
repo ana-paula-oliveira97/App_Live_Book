@@ -1,26 +1,16 @@
 let container_status = document.querySelector(".status");
 
-let data_status = [
-  { name: "Ana Souzza" },
-  { name: "Victor Souzza" },
-  { name: "Marilia Souzza" },
-  { name: "Henrique Souzza" },
-  { name: "Cintia Souzza" },
-  { name: "Davi Souzza" },
-  { name: "Laura Souzza" },
-  { name: "Samuel Souzza" },
-  { name: "Lara Souzza" },
-  { name: "Pedro Souzza" },
-  { name: "João Souzza" },
-  { name: "Leticia Souzza" },
-  { name: "Sofia Souzza" },
-  { name: "Maiara Souzza" },
-  { name: "Maraisa Souzza" },
-];
+let data_status_banco = "";
+data_status_banco = new String();
+data_status_banco = Chamada.getResult();
+
+let data_status = data_status_banco.split(",");
+data_status[1] = "Karlla Souzza";
+data_status[0] = "Ana Souzza";
 
 for (let index = 0; index < data_status.length; index++) {
   // Frmatando os nomes Até a primeira virgula
-  let [, Name_formated] = data_status[index].name.match(/(\S+) /) || [];
+  let [, Name_formated] = data_status[index].match(/(\S+) /) || [];
 
   container_status.innerHTML += `
   <div class="card_status">
